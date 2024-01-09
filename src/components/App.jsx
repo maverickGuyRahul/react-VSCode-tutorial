@@ -1,19 +1,39 @@
 import React from 'react';
+import Heading from './Heading';
+import ReactDOM from 'react-dom/client';
 
-function strike() {
-  document.getElementById('root').style.textDecoration = 'line-through';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+let count = 0;
+
+function increase() {
+  count++;
+  root.render(
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}> + </button>
+      <button onClick={decrease}> - </button>
+    </div>
+  );
 }
 
-function disableStrike() {
-  document.getElementById('root').style.textDecoration = 'none';
+function decrease() {
+  count--;
+  root.render(
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}> + </button>
+      <button onClick={decrease}> - </button>
+    </div>
+  );
 }
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
-      <button onClick={strike}> done </button>
-      <button onClick={disableStrike}> undo </button>
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}> + </button>
+      <button onClick={decrease}> - </button>
     </div>
   );
 }
