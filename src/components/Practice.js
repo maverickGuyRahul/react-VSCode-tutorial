@@ -18,3 +18,7 @@ const cars = [
     },
   },
 ];
+
+export default cars;
+
+// export { num };
