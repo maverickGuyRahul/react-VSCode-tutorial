@@ -3,30 +3,44 @@ import React, { useState } from 'react';
 // let count = 0;
 
 function App() {
-  const [userName, setUserName] = useState('');
-  const [headingText, setHeadingText] = useState('Hello');
+  const [fullName, setFullName] = useState({
+    fName: '',
+    lName: '',
+  });
 
-  function updateUserName(event) {
-    setUserName(event.target.value);
-  }
-  function updateHeadingText() {
-    setHeadingText('Hello ' + userName);
+  function handleChange(event) {
+    const newValue = event.target.value;
+    const inputBoxName = event.target.name;
   }
 
-  function handleSubmit(event) {
-    setHeadingText('Hello ' + userName);
+  // function updateHeadingText() {
+  //   setHeadingText('Hello ' + userName);
+  // }
 
-    event.preventDefault();
-  }
+  // function handleSubmit(event) {
+  //   setHeadingText('Hello ' + userName);
+
+  //   event.preventDefault();
+  // }
   return (
     <div className="container">
-      <h1>{headingText}</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>
+        Hello {fullName.fName} {fullName.lName};
+      </h1>
+      <form>
         <input
+          name="fName"
           type="text"
           placeholder="What is your first name?"
-          onChange={updateUserName}
-          value={userName}
+          onChange={handleChange}
+          value={fullName.fName}
+        />
+        <input
+          name="lName"
+          type="text"
+          placeholder="What is your first name?"
+          onChange={handleChange}
+          value={fullName.fName}
         />
         <button type="submit">Submit</button>
       </form>
